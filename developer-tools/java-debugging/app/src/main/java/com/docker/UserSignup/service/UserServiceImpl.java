@@ -6,6 +6,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.docker.UserSignup.model.User;
 import com.docker.UserSignup.repository.UserRepository;
+import com.docker.UserSignup.util.Rot13;
 
 @Service("userService")
 public class UserServiceImpl implements UserService {
@@ -20,8 +21,10 @@ public class UserServiceImpl implements UserService {
 
 	public boolean findByLogin(String userName, String password) {	
 		User usr = userRepository.findByUserName(userName);
+		
+		String passwd = Rot13.rot13(password);
 
-		if(usr != null && usr.getPassword().equals(password)) {
+		if(usr != null && usr.getPassword().equals(passwd)) {
 			return true;
 		} 
 		

@@ -80,7 +80,7 @@
 				<div class="row">
 					<div class="col-lg-6">
 						<form:form id="myForm" method="post"
-							class="bs-example form-horizontal" commandName="userLogin">
+							class="bs-example form-horizontal" modelAttribute="userLogin">
 							<fieldset>
 								<legend>User Login Form</legend>
 
